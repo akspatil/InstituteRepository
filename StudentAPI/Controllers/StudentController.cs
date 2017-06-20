@@ -48,18 +48,5 @@ namespace StudentAPI.Controllers
             return new HttpResponseMessage(HttpStatusCode.OK);
             //bool success = paymentRepository.AddPaymentDetails(studentId, paymentRepository);
         }
-
-
-        public HttpResponseMessage AddNew([FromBody]JObject json)
-        {
-            StudentManager studentManager = JsonConvert.DeserializeObject<StudentManager>(json.ToString());
-            int studentId = studentRepository.AddNewStudent(studentManager);
-            if (studentId <= 0)
-            {
-                return new HttpResponseMessage(HttpStatusCode.Forbidden);
-            }
-            return new HttpResponseMessage(HttpStatusCode.OK);
-            //bool success = paymentRepository.AddPaymentDetails(studentId, paymentRepository);
-        }
     }
 }
